@@ -1,0 +1,15 @@
+dotnetcms
+
+This is a Puppet Labs module which installs and configures 7zip, IIS, DotNet, and finally hosts a DotNetCMS application on Windows.
+
+License
+-------
+
+
+Contact
+-------
+
+
+Support
+-------
+
