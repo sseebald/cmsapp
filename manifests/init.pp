@@ -5,7 +5,7 @@ class cmsapp {
 
   staging::file { 'CMS4.06.zip':
     target => 'C:\staging\CMS4.06.zip',
-    source => 'puppet:///modules/cmsapp/CMS4.06.zip',
+    source => "http://${::servername}/dotnetcms/CMS4.06.zip",
   }
 
   exec { 'extract_cms4':
