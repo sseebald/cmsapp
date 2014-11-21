@@ -8,7 +8,7 @@ class cmsapp {
   }
 
   exec { 'extract_cms4':
-    path      => 'C:\Program Files (x86)\7-Zip',
+    path      => 'C:\Program Files\7-Zip',
     command   => '7z.exe x C:\staging\cmsapp\CMS4.06.zip -oC:\cms4app',
     creates   => 'C:\cms4app',
     subscribe => Staging::File['CMS4.06.zip'],
