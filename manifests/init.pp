@@ -12,6 +12,7 @@ class cmsapp {
     command   => '7z.exe x C:\staging\cmsapp\CMS4.06.zip -oC:\cms4app',
     creates   => 'C:\cms4app',
     subscribe => Staging::File['CMS4.06.zip'],
+    require   => Package['7zip'],
   }
 
   reboot { 'after iis is done': 
