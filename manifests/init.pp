@@ -4,15 +4,15 @@ class cmsapp {
   include profile::staging
 
   staging::file { 'CMS4.06.zip':
-    target => 'C:\staging\CMS4.06.zip',
-    source => 'puppet:///modules/cmsapp/CMS4.06.zip',
+    source => "http://${::servername}/dotnetcms/CMS4.06.zip",
   }
 
   exec { 'extract_cms4':
     path      => 'C:\Program Files (x86)\7-Zip',
-    command   => '7z.exe x C:\staging\CMS4.06.zip -oC:\cms4app',
+    command   => '7z.exe x C:\staging\cmsapp\CMS4.06.zip -oC:\cms4app',
     creates   => 'C:\cms4app',
     subscribe => Staging::File['CMS4.06.zip'],
+    require   => Package['7zip'],
   }
 
   reboot { 'after iis is done': 
